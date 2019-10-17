@@ -3,6 +3,7 @@ function add(input) {
     return x + y;
   })
   console.log(sum);
+  return sum;
 }
 
 function subtract(input) {
@@ -10,6 +11,7 @@ function subtract(input) {
     return x - y;
   })
   console.log(subtract);
+  return subtract;
 }
 
 function product(input) {
@@ -17,6 +19,7 @@ function product(input) {
     return x * y;
   })
   console.log(product);
+  return product;
 }
 
 function divide(input) {
@@ -24,27 +27,57 @@ function divide(input) {
     return x / y;
   })
   console.log(divide);
+  return divide;
 }
 
 function operate(sym, arr) {
+  let ans;
   if (sym == '*') {
-    product(arr)
+    ans = product(arr)
   }
+
+  switch (sym) {
+    case '+':
+      ans = sum(arr)
+      break;
+    case '-':
+      ans = subtract(arr)
+      break;
+    case '*':
+      ans = product(arr);
+      break;
+    case '/':
+      ans = divide(arr);
+      break;
+  }
+
+  display.textContent = ans;
 }
 
 buttons = document.querySelectorAll('button');
 let operators = ['/', '*', '+', '-']
 let display = document.getElementById('window');
-let disp_arr = []
+let disp_arr = [];
+let num_arr = [];
+let sym;
 
 for (const button of buttons) {
   button.onclick = function (e) {
-    if (e.target.value(Number)) {
-      console.log(e.target.value);
-      disp_arr.push(e.target.value)
-    } else if (operators.includes(e.target.value)) {
-      console.log("operator clicked");
-    }
+    console.log(e.target.value);
+    disp_arr.push(e.target.value)
     display.textContent = disp_arr.join('').slice(0, 10);
+    let test = e.target.value
+    if (operators.includes(e.target.value)) {
+      num_arr.push(parseInt(display.textContent))
+      console.log('num_arr', num_arr);
+      disp_arr = []
+      sym = e.target.value
+    }
+    if (e.target.value == '=') {
+      num_arr.push(parseInt(display.textContent))
+      operate(sym, num_arr)
+      num_arr = [];
+      disp_arr = [];
+    }
   }
 }
