@@ -32,11 +32,14 @@ function operate(sym, arr) {
   }
 }
 
-input = [20, 5, 6, 1]
+buttons = document.querySelectorAll('button');
+let operators = ['/', '*', '+', '-']
 
-add(input) // 32
-subtract(input) // 8
-product(input)
-divide(input)
-
-operate('*', [7, 8]);
+for (const button of buttons) {
+  button.onclick = function (e) {
+    console.log(e.target.value);
+    if (operators.includes(e.target.value)) {
+      console.log("operator clicked");
+    }
+  }
+}
