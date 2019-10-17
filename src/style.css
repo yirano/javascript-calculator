@@ -1,0 +1,63 @@
+.container {
+  position: relative;
+  width: 230px;
+  margin: 0 auto;
+  font-size: 42px;
+  line-height: 22px;
+}
+
+#window {
+  width: auto;
+  height: 80px;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 40px;
+  padding-right: 10px;
+  line-height: 102px;
+  background-color: rgb(168, 167, 167);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+button {
+  height: 48px;
+  width: 58px;
+  border: 1px solid rgb(168, 167, 167);
+  outline: none;
+}
+
+.operators button {
+  display: block;
+  background-color: rgb(255, 145, 0);
+  color: #fff;
+  font-size: 25px;
+}
+
+.operators {
+  position: absolute;
+  right: 0;
+}
+
+.digits {
+  width: 220px;
+}
+
+.digits button {
+  float: left;
+  background-color: rgb(238, 238, 238);
+  font-size: 22px;
+}
+
+.zero {
+  width: 116px;
+  border-bottom-left-radius: 5px;
+}
+
+.equal {
+  border-bottom-right-radius: 5px;
+}
+
+button:active {
+  background-color:rgb(168, 167, 167);
+}
+
