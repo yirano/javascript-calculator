@@ -34,12 +34,17 @@ function operate(sym, arr) {
 
 buttons = document.querySelectorAll('button');
 let operators = ['/', '*', '+', '-']
+let display = document.getElementById('window');
+let disp_arr = []
 
 for (const button of buttons) {
   button.onclick = function (e) {
     console.log(e.target.value);
+    disp_arr.push(e.target.value)
     if (operators.includes(e.target.value)) {
       console.log("operator clicked");
+
     }
+    display.textContent = disp_arr.join('');
   }
 }
