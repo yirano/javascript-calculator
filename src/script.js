@@ -57,6 +57,7 @@ function operate(sym, arr) {
 buttons = document.querySelectorAll('button');
 let operators = ['/', '*', '+', '-']
 let display = document.getElementById('window');
+let clear = document.querySelector('.clear');
 let disp_arr = [];
 let num_arr = [];
 let sym;
@@ -65,7 +66,7 @@ for (const button of buttons) {
   button.onclick = function (e) {
     console.log(e.target.value);
     disp_arr.push(e.target.value)
-    display.textContent = disp_arr.join('').slice(0, 10);
+    display.textContent = parseInt(disp_arr.join('').slice(0, 10));
     let test = e.target.value
     if (operators.includes(e.target.value)) {
       num_arr.push(parseInt(display.textContent))
@@ -81,3 +82,7 @@ for (const button of buttons) {
     }
   }
 }
+
+clear.addEventListener("click", function(){
+  display.textContent = '0'
+})
