@@ -39,12 +39,12 @@ let disp_arr = []
 
 for (const button of buttons) {
   button.onclick = function (e) {
-    console.log(e.target.value);
-    disp_arr.push(e.target.value)
-    if (operators.includes(e.target.value)) {
+    if (e.target.value(Number)) {
+      console.log(e.target.value);
+      disp_arr.push(e.target.value)
+    } else if (operators.includes(e.target.value)) {
       console.log("operator clicked");
-
     }
-    display.textContent = disp_arr.join('');
+    display.textContent = disp_arr.join('').slice(0, 10);
   }
 }
